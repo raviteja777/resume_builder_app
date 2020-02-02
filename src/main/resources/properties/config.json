@@ -1,0 +1,7 @@
+{
+  "input_template":"src/main/resources/files/input_resume.json",
+  "temp_directory":"src/main/resources/files/temp",
+  "docx_templates_path":"src/main/resources/files/templates",
+  "scenes_properties":"src/main/resources/properties/scenes.json",
+  "github_link" : "https://github.com/raviteja777/resume_builder_app"
+}

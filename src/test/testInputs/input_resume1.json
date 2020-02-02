@@ -1,0 +1,78 @@
+{
+  "name" : "Raviteja Chowdari",
+  "headline" : "Technology Lead @ Infosys Limited \n www.linkedin.com/in/raviteja777 ",
+  "phone" : "9620896692",
+  "email" : "raviteja777@gmail.com",
+  "address" : {
+    "house" : "G03 Kumari Brundavan",
+    "locality" : "Junnasandra,Sarjapur road",
+    "city":"Bangalore",
+    "pincode": 560035
+  },
+
+  "objectives" : [
+    "To design , develop and optimize efficient solutions to solve everyday problems by leveraging emerging AI technologies "
+  ],
+
+  "employment_history" : [
+    {
+      "company" : "Infosys Limited",
+      "duration" : "Jan-2019 to present",
+      "designation" : "Technology Lead",
+      "job_description": "AI & Automation services ,RPA solutions using UiPath \n,Chatbots on Google Dialogflow and Azure cognitive platform with Node.Js,\n Machine Learning (scikit learn , WEKA)"
+    },
+    {
+      "company" : "Infosys Limited",
+      "duration" : "Jul 2014 - Dec 2018",
+      "designation" : "Technology Analyst",
+      "job_description": "Financial Services \n Worked in client location on Tresury applications (Java , Spring ) \n Support,QA ,BCP ,Validation testing(messaging ,rules analytics),process automation,auditing and documentation "
+    },
+    {
+      "company" : "Infosys Limited",
+      "duration" : "Jan 2010 - Jun 2014",
+      "designation" : "Test Engineer",
+      "job_description": "Finacle Banking Product \n Worked on Wealth management (Mutual Funds , Equities , Structured Products) \n Testing (QA and automation) for new releases , UAT , system testing and regression"
+    }
+
+  ],
+  "education":[
+    {
+      "institution" : "BITS Pilani",
+      "duration" : "2015 - 2017",
+      "course" : "M.Tech, Software Systems (Specialization in Data Analytics)",
+      "grade" : "7.49 GPA"
+    },
+    {
+      "institution" : "Raghu Engineering College , JNTU Kakinada",
+      "duration" : "2005 - 2009",
+      "course" : "B.Tech",
+      "grade" : "71.54% - First Class with Distinction"
+    }
+  ],
+  "responsibilities" : [
+    "Understand requirements and design solutions",
+    "Utilizing frameworks and building solutions ",
+    "Coordinating with team members and building modules"
+  ],
+  "skills" : [
+    "Java 8",
+    "Python 3",
+    "Spring framework",
+    "NodeJS with Express",
+    "MongoDb",
+    "Machine Learning - WEKA, Scikit"
+  ],
+  "certifications" : [
+    "Oracle Certified Professional - JavaSE6 programmer",
+    "UiPath -2019 RPA Developer Advanced"
+
+  ],
+  "other_details":{
+    "portfolios" :["www.hackerank.com/raviteja777",
+      "www.github.com/raviteja777",
+      "www.kaggle.com/raviteja777"]
+  },
+
+  "declaration" : "I hereby declare that all the information provided is accurate to my knowledge."
+
+}

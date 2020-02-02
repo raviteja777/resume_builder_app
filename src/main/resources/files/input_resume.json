@@ -1,0 +1,85 @@
+{
+  "name" : "Ashok Kumar",
+  "headline" : "Manager@ 123Company",
+  "phone" : "123456789",
+  "email" : "ashok_kumar12345@somemail.com",
+  "address" : {
+    "house" : "flat no-23 , ABC apartment",
+    "locality" : "Electronics city phase-1",
+    "city":"Bangalore",
+    "pincode": 560100
+  },
+
+  "objectives" : [
+    "To beat Bill gates to become richest person in the world",
+    "To create a company that makes car less drivers"],
+
+  "employment_history" : [
+    {
+      "company" : "123 Company",
+      "duration" : "1-oct-2009 to present",
+      "designation" : "Manager",
+      "job_description": ["Company was going bankrupt" , "I did some stunts to save it "]
+    },
+    {
+      "company" : "XYZ company",
+      "duration" : "1-Oct-2005 to 30-jul-2009",
+      "designation" : "Senior System Analyst",
+      "job_description": ["created pipelines for systems and databases and established better modules "]
+    },
+    {
+      "company" : "ABC company",
+      "duration" : "23-jan-2002 to 30-jul-2005",
+      "designation" : "System Engineer",
+      "job_description": ["Developed some applications and maintained some repositories for team",
+        "Handled a project using C# , assembly , binary , kilngon and gibberish"]
+    }
+
+  ],
+  "education":[
+    {
+      "institution" : "Example University MBA College",
+      "duration" : "1-1-1998 to 1-1-2000",
+      "course" : "MBA",
+      "grade" : "8.0 GPA"
+    },
+    {
+      "institution" : "Example University Engg college",
+      "duration" : "1-1-1994 to 1-1-1998",
+      "course" : "B.Tech",
+      "grade" : "80%"
+    }
+  ],
+  "responsibilities" : [
+    "Motivating team memebers and create positive culture",
+    "Creating rockets and sending them into space ",
+    "Doing R&D on time machines and trying to send people to blackholes"
+  ],
+  "skills" : [
+    "Pulsar laser",
+    "Nano technology",
+    "5D printing",
+    "10G mobile technology"
+  ],
+  "certifications" : [
+    "Oracle certified Java programmer",
+    "Star trek certified warp drive expert",
+    "Avengers certified assembler professional",
+    "Harry potter certified wand master"
+  ],
+  "other_details":{
+    "personal_details":{
+      "dob" : "1-1-1980",
+      "marital_status" : "single",
+      "languages" : ["English" ,"Aztec" ,"Latin","Klingon"]
+    },
+    "portfolios" :["www.hackerank.com/ashok-kumar",
+      "www.github.com/ashok12345",
+      "www.kaggle.com/profiles/a.kumar1234"],
+
+    "dummy_field" :"Hello world , why do you even care "
+  },
+
+  "declaration" : "I hereby declare that all the information provided is accurate to my knowledge."
+
+}

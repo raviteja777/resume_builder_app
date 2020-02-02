@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="705.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rt.resumeBuilderApp.controller.ResumeBuilderController">
+  <children>
+    <AnchorPane fx:id="topContainer" maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane layoutX="5.0" layoutY="9.0" prefHeight="77.0" prefWidth="268.0">
+               <children>
+                  <fx:include scaleX="0.7" scaleY="0.7" source="header.fxml" />
+               </children>
+            </Pane>
+            <Label fx:id="message" layoutX="15.0" layoutY="96.0" prefHeight="88.0" prefWidth="641.0" text="----" textFill="RED" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <FlowPane layoutX="14.0" layoutY="200.0" prefHeight="331.0" prefWidth="659.0">
+               <children>
+                  <Hyperlink fx:id="downloadJsonLink" onAction="#downloadJson" prefHeight="40.0" prefWidth="309.0" text="Download input json template ">
+                     <tooltip>
+                        <Tooltip text="Download the sample input JSON format file , fill it and submit " />
+                     </tooltip>
+                  </Hyperlink>
+                  <Label prefHeight="31.0" prefWidth="550.0" text="UPLOAD RESUME IN JSON FORMAT" textFill="RED" />
+                  <TextField fx:id="uploadFilePath" prefHeight="24.0" prefWidth="496.0">
+                     <tooltip>
+                        <Tooltip text="Upload the filled JSON file here" />
+                     </tooltip></TextField>
+                  <Button mnemonicParsing="false" onAction="#browseJSONFile" text="Browse" />
+                  <Pane prefHeight="29.0" prefWidth="572.0" />
+                  <Label prefHeight="41.0" prefWidth="502.0" text="SELECT TEMPLATE DOCUMENT" textFill="RED" />
+                  <TextField fx:id="templateSelectorPath" prefHeight="25.0" prefWidth="498.0">
+                     <tooltip>
+                        <Tooltip text="Select the .docx template " />
+                     </tooltip>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#browseTemplateFile" text="Browse" />
+                  <Hyperlink fx:id="openTemplateLink" onAction="#openTemplateFolder" prefHeight="40.0" prefWidth="555.0" text="Open Default Template Folder">
+                     <tooltip>
+                        <Tooltip text="Open templates folder , you can copy new templates or modify existing ones " />
+                     </tooltip>
+                  </Hyperlink>
+                  <ButtonBar prefHeight="40.0" prefWidth="363.0">
+                    <buttons>
+                        <Button fx:id="submitBtn" disable="true" mnemonicParsing="false" onAction="#createResumeDoc" text="Submit" />
+                      <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#resetForm" text="Cancel" />
+                        <Button fx:id="nextBtn" disable="true" mnemonicParsing="false" onAction="#nextScene" text="Next" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </FlowPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
