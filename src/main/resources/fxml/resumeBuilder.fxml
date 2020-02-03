@@ -16,9 +16,9 @@
   <children>
     <AnchorPane fx:id="topContainer" maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Pane layoutX="5.0" layoutY="9.0" prefHeight="77.0" prefWidth="268.0">
+            <Pane layoutX="118.0" layoutY="15.0" prefHeight="88.0" prefWidth="298.0">
                <children>
-                  <fx:include scaleX="0.7" scaleY="0.7" source="header.fxml" />
+                  <fx:include source="header.fxml" />
                </children>
             </Pane>
             <Label fx:id="message" layoutX="15.0" layoutY="96.0" prefHeight="88.0" prefWidth="641.0" text="----" textFill="RED" wrapText="true">
@@ -28,7 +28,7 @@
             </Label>
             <FlowPane layoutX="14.0" layoutY="200.0" prefHeight="331.0" prefWidth="659.0">
                <children>
-                  <Hyperlink fx:id="downloadJsonLink" onAction="#downloadJson" prefHeight="40.0" prefWidth="309.0" text="Download input json template ">
+                  <Hyperlink fx:id="downloadJsonLink" onAction="#downloadJson" prefHeight="40.0" prefWidth="309.0" text="Download Input JSON Template ">
                      <tooltip>
                         <Tooltip text="Download the sample input JSON format file , fill it and submit " />
                      </tooltip>
@@ -47,20 +47,26 @@
                      </tooltip>
                   </TextField>
                   <Button mnemonicParsing="false" onAction="#browseTemplateFile" text="Browse" />
-                  <Hyperlink fx:id="openTemplateLink" onAction="#openTemplateFolder" prefHeight="40.0" prefWidth="555.0" text="Open Default Template Folder">
+                  <Hyperlink fx:id="openTemplateLink" onAction="#openTemplateFolder" prefHeight="54.0" prefWidth="555.0" text="Open Default Template Folder">
                      <tooltip>
                         <Tooltip text="Open templates folder , you can copy new templates or modify existing ones " />
                      </tooltip>
                   </Hyperlink>
-                  <ButtonBar prefHeight="40.0" prefWidth="363.0">
+                  <ButtonBar prefHeight="73.0" prefWidth="398.0">
                     <buttons>
                         <Button fx:id="submitBtn" disable="true" mnemonicParsing="false" onAction="#createResumeDoc" text="Submit" />
-                      <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#resetForm" text="Cancel" />
-                        <Button fx:id="nextBtn" disable="true" mnemonicParsing="false" onAction="#nextScene" text="Next" />
+                      <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetForm" text="Reset" />
+                        <Button fx:id="aboutBtn" mnemonicParsing="false" onAction="#viewAbout" text="About" />
                     </buttons>
                   </ButtonBar>
                </children>
             </FlowPane>
+            <Button fx:id="helpBtn" layoutX="610.0" layoutY="47.0" mnemonicParsing="false" onAction="#viewHelp" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: skyblue; -fx-background-radius: 30;" text="?" textFill="#222121">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="583.0" layoutY="51.0" prefHeight="17.0" prefWidth="27.0" text="help" textFill="#023ef0" />
       </children>
     </AnchorPane>
   </children>

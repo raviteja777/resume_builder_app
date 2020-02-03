@@ -27,7 +27,8 @@ public class UILoader extends Application  {
             PropertiesManager.initSettings();
             initSceneMap(PropertiesManager.getSceneMap());
             launch(args);
-        } catch (IOException e) {
+        } catch(Exception e){
+            new UILoader().errorHandler(e);
             e.printStackTrace();
         }
 
@@ -66,7 +67,7 @@ public class UILoader extends Application  {
     }
 
 
-    private Scene initScene(String path) throws IOException{
+    public Scene initScene(String path) throws IOException{
         URL url = getClass().getResource(path);
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(url);
@@ -75,7 +76,7 @@ public class UILoader extends Application  {
         return scene;
     }
 
-    private void refreshStage(Scene scene, String title){
+    public void refreshStage(Scene scene, String title){
         stage.setTitle(title);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -86,7 +87,7 @@ public class UILoader extends Application  {
         Label label = new Label();
         if(ex!=null) {
             ex.printStackTrace();
-            label.setText(ex.toString() + "\n" + ex.getStackTrace()[0].toString());
+            label.setText(" "+ex.toString() + "\n" + ex.getStackTrace()[0].toString());
             Scene scene = new Scene(label);
             refreshStage(scene, "Error Message");
         }

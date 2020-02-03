@@ -10,11 +10,11 @@ import rt.resumeBuilderApp.ui.UILoader;
 /**
  * Created by Raviteja  on 02-02-2020.
  */
-public class FinalController extends AbstractController {
+public class CreditsController extends AbstractController {
 
     @FXML
     public void openGithubLink(){
-        String path = PropertiesManager.getConfigProperty("github_link");
+        String path = "https://github.com/raviteja777/resume_builder_app";
         HostServicesDelegate hostServices = HostServicesFactory.getInstance(new UILoader());
         hostServices.showDocument(path);
     }

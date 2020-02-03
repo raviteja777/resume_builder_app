@@ -1,5 +1,5 @@
 {
-  "welcome": "/fxml/welcome.fxml",
   "build_resume": "/fxml/resumeBuilder.fxml",
-  "final": "/fxml/final.fxml"
+  "help": "/fxml/help.fxml",
+  "about": "/fxml/about.fxml"
 }

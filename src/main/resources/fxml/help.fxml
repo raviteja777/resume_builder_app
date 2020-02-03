@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rt.resumeBuilderApp.controller.HelpController">
+   <children>
+      <Pane layoutX="93.0" layoutY="34.0" prefHeight="65.0" prefWidth="307.0">
+       <children>
+           <fx:include source="header.fxml" />
+       </children>
+       </Pane>
+      <Label layoutX="121.0" layoutY="107.0" prefHeight="46.0" prefWidth="279.0" text="Welcome to RT Resume Generator">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" layoutX="17.0" layoutY="153.0" prefHeight="229.0" prefWidth="509.0" text="Instructions&#10;&#10;1. Download input json format&#10;2. Fill the respective fields in  json file with details&#10;3. If any field is not required , put the value as &quot;&quot;&#10;4. Save the json in local path and upload the saved json file &#10;5. Select and output docx template &#10;6. Generate the resume and save it " wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+   </children>
+</Pane>

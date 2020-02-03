@@ -40,7 +40,7 @@ public class DocGenerator {
 
         }catch(IOException |IllegalAccessException|IntrospectionException|InvocationTargetException ex) {
             ex.printStackTrace();
-            throw new Exception("Exception while writing document file, see logs for information");
+            throw new Exception("Exception while writing word document file, see logs for information");
         }catch(Exception e) {
             e.printStackTrace();
             throw new Exception(e.getClass()+" has occurred ");
