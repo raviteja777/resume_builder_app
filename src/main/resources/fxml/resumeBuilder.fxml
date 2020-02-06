@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
@@ -12,46 +11,52 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="705.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rt.resumeBuilderApp.controller.ResumeBuilderController">
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2020 Raviteja Chowdari
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="640.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rt.resumeBuilderApp.controller.ResumeBuilderController">
   <children>
-    <AnchorPane fx:id="topContainer" maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="topContainer" maxHeight="-1.0" maxWidth="-1.0" prefHeight="477.0" prefWidth="705.0" VBox.vgrow="ALWAYS">
       <children>
             <Pane layoutX="118.0" layoutY="15.0" prefHeight="88.0" prefWidth="298.0">
                <children>
                   <fx:include source="header.fxml" />
                </children>
             </Pane>
-            <Label fx:id="message" layoutX="15.0" layoutY="96.0" prefHeight="88.0" prefWidth="641.0" text="----" textFill="RED" wrapText="true">
+            <Label fx:id="message" layoutX="15.0" layoutY="96.0" prefHeight="88.0" prefWidth="609.0" text="----" textFill="RED" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <FlowPane layoutX="14.0" layoutY="200.0" prefHeight="331.0" prefWidth="659.0">
+            <FlowPane layoutX="14.0" layoutY="200.0" prefHeight="250.0" prefWidth="617.0">
                <children>
-                  <Hyperlink fx:id="downloadJsonLink" onAction="#downloadJson" prefHeight="40.0" prefWidth="309.0" text="Download Input JSON Template ">
-                     <tooltip>
-                        <Tooltip text="Download the sample input JSON format file , fill it and submit " />
-                     </tooltip>
-                  </Hyperlink>
-                  <Label prefHeight="31.0" prefWidth="550.0" text="UPLOAD RESUME IN JSON FORMAT" textFill="RED" />
+                  <Label prefHeight="31.0" prefWidth="550.0" text="UPLOAD RESUME IN JSON FORMAT" />
                   <TextField fx:id="uploadFilePath" prefHeight="24.0" prefWidth="496.0">
                      <tooltip>
                         <Tooltip text="Upload the filled JSON file here" />
                      </tooltip></TextField>
                   <Button mnemonicParsing="false" onAction="#browseJSONFile" text="Browse" />
                   <Pane prefHeight="29.0" prefWidth="572.0" />
-                  <Label prefHeight="41.0" prefWidth="502.0" text="SELECT TEMPLATE DOCUMENT" textFill="RED" />
+                  <Label prefHeight="41.0" prefWidth="502.0" text="SELECT TEMPLATE DOCUMENT" />
                   <TextField fx:id="templateSelectorPath" prefHeight="25.0" prefWidth="498.0">
                      <tooltip>
                         <Tooltip text="Select the .docx template " />
                      </tooltip>
                   </TextField>
                   <Button mnemonicParsing="false" onAction="#browseTemplateFile" text="Browse" />
-                  <Hyperlink fx:id="openTemplateLink" onAction="#openTemplateFolder" prefHeight="54.0" prefWidth="555.0" text="Open Default Template Folder">
-                     <tooltip>
-                        <Tooltip text="Open templates folder , you can copy new templates or modify existing ones " />
-                     </tooltip>
-                  </Hyperlink>
                   <ButtonBar prefHeight="73.0" prefWidth="398.0">
                     <buttons>
                         <Button fx:id="submitBtn" disable="true" mnemonicParsing="false" onAction="#createResumeDoc" text="Submit" />
@@ -61,12 +66,12 @@
                   </ButtonBar>
                </children>
             </FlowPane>
-            <Button fx:id="helpBtn" layoutX="610.0" layoutY="47.0" mnemonicParsing="false" onAction="#viewHelp" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: skyblue; -fx-background-radius: 30;" text="?" textFill="#222121">
+            <Button fx:id="helpBtn" layoutX="562.0" layoutY="48.0" mnemonicParsing="false" onAction="#viewHelp" prefHeight="17.0" prefWidth="15.0" style="-fx-background-color: skyblue; -fx-background-radius: 30;" text="?">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="583.0" layoutY="51.0" prefHeight="17.0" prefWidth="27.0" text="help" textFill="#023ef0" />
+            <Label layoutX="538.0" layoutY="51.0" prefHeight="17.0" prefWidth="27.0" text="help" />
       </children>
     </AnchorPane>
   </children>

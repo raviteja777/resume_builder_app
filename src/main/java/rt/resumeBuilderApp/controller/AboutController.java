@@ -14,28 +14,24 @@
  * limitations under the License.
  ******************************************************************************/
 
+package rt.resumeBuilderApp.controller;
+
+import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
+import com.sun.javafx.application.HostServicesDelegate;
+import javafx.application.HostServices;
+import javafx.fxml.FXML;
+import rt.resumeBuilderApp.service.PropertiesManager;
+import rt.resumeBuilderApp.ui.UILoader;
+
 /**
- * Created by Raviteja  on 11-01-2020.
+ * Created by Raviteja  on 02-02-2020.
  */
+public class AboutController extends AbstractController {
 
-import rt.resumeBuilderApp.entities.Resume;
-import rt.resumeBuilderApp.service.ResumeBuilder;
-
-public class TestResumeBuilder {
-
-    static String filePath = "src\\main\\resources\\files\\input_resume.json";
-
-    public static Resume build(){
-        try {
-            ResumeBuilder res = new ResumeBuilder(filePath);
-            return res.buildResume();
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static void main(String args[]){
-        build();
+    @FXML
+    public void openGithubLink(){
+        String path = "https://github.com/raviteja777/resume_builder_app";
+        HostServicesDelegate hostServices = HostServicesFactory.getInstance(new UILoader());
+        hostServices.showDocument(path);
     }
 }

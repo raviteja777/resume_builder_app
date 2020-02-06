@@ -1,8 +1,22 @@
+/*******************************************************************************
+ * Copyright 2020 Raviteja Chowdari
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
 package rt.resumeBuilderApp.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import rt.resumeBuilderApp.entities.Resume;
 import rt.resumeBuilderApp.service.DocGenerator;
 import rt.resumeBuilderApp.service.ResumeBuilder;
@@ -31,7 +46,7 @@ public class ResumeBuilderController extends AbstractController {
     @FXML private Button submitBtn ;
     @FXML private Label message;
     private Map<String,String> scenes;
-
+    private Scene helpScene , aboutScene;
 
     @FXML
     public void browseJSONFile(){
@@ -94,57 +109,19 @@ public class ResumeBuilderController extends AbstractController {
         }
     }
 
-    @FXML
-    public void downloadJson(){
-        String outFilePath = fileSaveDialog(new FileChooser.ExtensionFilter("JSON file(*.json)","*.json"));
 
-        if(outFilePath!=null && outFilePath.trim().length()>0) {
-            File inputFile = new File(PropertiesManager.getConfigProperty("input_template"));
-            File outputFile = new File(outFilePath);
-            try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
-                 BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile))) {
-
-                String line;
-                while (br != null && (line = br.readLine()) != null) {
-                    bw.write(line + "\n");
-                }
-                if (outputFile != null) {
-                    message.setText("JSON file downloaded to " + outFilePath);
-                }
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                message.setText("I/O Error occurred while copying JSON. Try again");
-            }
-        }
-
-    }
-
-    @FXML
-    public void openTemplateFolder(){
-        Desktop desktop = Desktop.getDesktop();
-        File templateFolder = new File(PropertiesManager.getConfigProperty("docx_templates_path"));
-        try {
-            desktop.open(templateFolder);
-        } catch (IOException e) {
-            e.printStackTrace();
-            message.setText(e.getStackTrace()[0]+" -- Error opening templates folder");
-        }
-
-    }
     @FXML
     public void resetForm(){
         message.setText("----");
         uploadFilePath.setText("");
-        initialize();
+        templateSelectorPath.setText("");
         submitBtn.setDisable(true);
     }
 
 
     @FXML
     public void initialize() {
-        File file = new File(PropertiesManager.getConfigProperty("docx_templates_path")+"/default.docx");
-        templateSelectorPath.setText(file.getAbsolutePath());
+        //to-do keep a listener to the text fields
         scenes = PropertiesManager.getSceneMap();
     }
 
@@ -152,7 +129,10 @@ public class ResumeBuilderController extends AbstractController {
     @FXML
     public void viewHelp()  {
         try {
-            loadPopUp(scenes.get("help"),"Help");
+            if(helpScene==null){
+                helpScene =new UILoader().initScene(scenes.get("help"));
+            }
+            loadPopUp(helpScene,"Help");
         } catch (IOException e) {
             e.printStackTrace();
             message.setText(String.valueOf(e.getStackTrace()[0]));
@@ -162,7 +142,10 @@ public class ResumeBuilderController extends AbstractController {
     @FXML
     public void viewAbout(){
         try {
-            loadPopUp(scenes.get("about"),"About");
+            if(aboutScene==null){
+                aboutScene =new UILoader().initScene(scenes.get("about"));
+            }
+            loadPopUp(aboutScene,"About");
         } catch (IOException e) {
             e.printStackTrace();
             message.setText(String.valueOf(e.getStackTrace()[0]));
@@ -170,9 +153,7 @@ public class ResumeBuilderController extends AbstractController {
 
     }
 
-    public void loadPopUp(String view,String title) throws IOException {
-        System.out.println(view);
-        Scene scene =new UILoader().initScene(view);
+    public void loadPopUp(Scene scene,String title) throws IOException {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle(title);

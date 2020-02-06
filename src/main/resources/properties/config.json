@@ -1,6 +1,3 @@
 {
-  "input_template":"/files/input_resume.json",
-  "temp_directory":"/files/temp",
-  "docx_templates_path":"/files/templates",
   "scenes_properties":"/properties/scenes.json"
 }
