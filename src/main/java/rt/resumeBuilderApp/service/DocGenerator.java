@@ -20,8 +20,7 @@ import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.poi.xwpf.usermodel.*;
 import rt.resumeBuilderApp.entities.Resume;
@@ -69,8 +68,23 @@ public class DocGenerator {
         * remove $ and {} , split the varaible using '.' and invoke the value
         * */
     public void constructDoc() throws IllegalAccessException, IntrospectionException, InvocationTargetException {
+        //create basic doc structure for all the standard fields
+        createBasicDoc();
+        //handle others , for each key in others create separate table
+        generateExtra(resumeObj.getOthers());
+        //create final declaration
+        createDeclaration();
+    }
 
-        for(XWPFTable table :  document.getTables()) {
+
+    //create basic doc structure for all the standard fields
+    //for multi record fields (eg: experience, education ) delegate to pending records
+    //-- [cannot add them in for loop causes ConcurrentModificationException
+    private void createBasicDoc() throws IllegalAccessException, IntrospectionException, InvocationTargetException{
+
+        Map<XWPFTableRow,List> pendingRecords = new HashMap<>();
+
+        for(XWPFTable table :document.getTables()) {
             for (XWPFTableRow row : table.getRows()) {
                 for (XWPFTableCell cell : row.getTableCells()) {
                     String cellValue = cell.getText();
@@ -80,8 +94,13 @@ public class DocGenerator {
                         String fieldVal = cellValue.replaceAll("\\$|\\{|\\}","");
                         Object replaceVal = getFieldValue(resumeObj,fieldVal);
                         if(replaceVal instanceof List){
-                            String combineString = combiner((List)replaceVal);
-                            replaceCellValue(cell,combineString,style);
+                            List listVal = (List)(replaceVal);
+                            if(listVal.get(0) instanceof String) {
+                                String combineString = combiner(listVal);
+                                replaceCellValue(cell, combineString, style);
+                            }else{
+                                pendingRecords.put(row,listVal);
+                            }
                         }else {
                             replaceCellValue(cell, replaceVal.toString(),style);
                         }
@@ -89,16 +108,10 @@ public class DocGenerator {
                 }
             }
         }
-        //handle others , for each key in others create separate table
-        generateExtra(resumeObj.getOthers());
+        //write the pending records
+        //appends the respective table and add extra rows -- to avoid ConcurrentModificationException
+        addTableRecords(pendingRecords);
 
-        //create final declaration
-        if(resumeObj.getDeclaration()!=null && resumeObj.getDeclaration().length()>0) {
-            XWPFParagraph finalPara = document.createParagraph();
-            XWPFRun finalRun = finalPara.createRun();
-            finalRun.setText("\n" + resumeObj.getDeclaration());
-            finalRun.setText("\n" + resumeObj.getName());
-        }
     }
 
     /*
@@ -171,7 +184,33 @@ public class DocGenerator {
             headerBuilder.append(""+Character.toUpperCase(word.charAt(0))+word.substring(1)+" ");
         }
         return headerBuilder.toString();
+    }
+
+    //add pending records for muti row fields like Education , experience etc.
+    private void addTableRecords(Map<XWPFTableRow,List> recordMap){
+        recordMap.forEach((row,listVal)->{
+            XWPFTable table = row.getTable();
+            XWPFTableCell currCell = row.getCell(0);
+            for(Object record : listVal){
+                String style = currCell.getParagraphs().get(0).getStyleID();
+                replaceCellValue(currCell,record.toString(),style);
+                XWPFTableRow newRow = table.createRow();
+                currCell = newRow.getCell(0);
+            }
+            table.removeRow(table.getRows().size()-1);
+        });
 
     }
+
+    //create final declaration
+    private void createDeclaration(){
+        if(resumeObj.getDeclaration()!=null && resumeObj.getDeclaration().length()>0) {
+            XWPFParagraph finalPara = document.createParagraph();
+            XWPFRun finalRun = finalPara.createRun();
+            finalRun.setText("\n" + resumeObj.getDeclaration());
+            finalRun.setText("\n" + resumeObj.getName());
+        }
+    }
+
 
 }

@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="resume_builder_app">
+    <output-path>$PROJECT_DIR$/out/artifacts/resume_builder_app</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="rt.resumeBuilderApp.ui.UILoader" />
+        <option name="description" value="Make your resume using JSON File" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="RT Resume Builder" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="resume_builder_app.jar">
+        <element id="module-output" name="resume_builder_app" />
+      </element>
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
+      <element id="library" level="project" name="Maven: com.github.virtuald:curvesapi:1.06" />
+      <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.13" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.4" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-compress:1.19" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-math3:3.6.1" />
+      <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:4.1.1" />
+      <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:4.1.1" />
+      <element id="library" level="project" name="Maven: org.apache.poi:poi:4.1.1" />
+      <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:3.1.0" />
+    </root>
+  </artifact>
+</component>
